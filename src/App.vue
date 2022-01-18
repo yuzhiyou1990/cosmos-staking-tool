@@ -41,13 +41,11 @@ export default {
   data: () => ({
     account: null,
     offlineSigner: null,
+    provider: new StakingProvider("https://cosmos.maiziqianbao.net/rpc"),
     validators: []
-  }), mounted() {
-    this.provider = new StakingProvider("https://cosmos.maiziqianbao.net/rpc");
-  },
+  }),
   methods: {
     loginAction() {
-  
       MathWalletExtension.getAccount().then(({account, offlineSigner}) => {
         this.account = account;
         this.offlineSigner = offlineSigner;
