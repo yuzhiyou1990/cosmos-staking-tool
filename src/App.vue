@@ -25,7 +25,7 @@
           </v-col>
         </v-row>
 
-        <v-btn @click="delegateAction()" class="primary" v-if="account">delegate 0.001</v-btn>
+        <v-btn @click="delegateAction()" class="primary" v-if="account">Test - Delegate(0.001 ATOM)</v-btn>
         
       </v-container>
     </v-main>
