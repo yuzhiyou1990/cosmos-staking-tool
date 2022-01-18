@@ -43,8 +43,7 @@ export default {
     offlineSigner: null,
     validators: []
   }), mounted() {
-    // https://cosmos.maiziqianbao.net/rpc
-    this.provider = new StakingProvider("http://47.98.35.78:26657");
+    this.provider = new StakingProvider("https://cosmos.maiziqianbao.net/rpc");
   },
   methods: {
     loginAction() {
