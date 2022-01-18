@@ -25,7 +25,7 @@
           </v-col>
         </v-row>
 
-        <v-btn @click="delegateAction()" class="primary" v-if="account">Test - Delegate(0.001 ATOM)</v-btn>
+        <v-btn @click="delegateAction()" class="primary my-5" v-if="account">Test - Delegate(0.001 ATOM)</v-btn>
         
       </v-container>
     </v-main>
@@ -63,14 +63,24 @@ export default {
     },
     undelegateAction(validator) {
       this.provider.undelegate(validator.delegatorAddress, validator.validatorAddress, validator.balance.amount, this.offlineSigner).then(txResp => {
-        console.log(txResp);
+        alert(JSON.stringify({
+          code: txResp.code,
+          transactionHash: txResp.transactionHash,
+          height: txResp.height,
+          rawLog: txResp.rawLog || ""
+        }));
       }).catch(e => {
         alert(e.message || "Unknown error");
       });
     },
     delegateAction() {
       this.provider.delegate(this.account.address, "cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0", "1000", this.offlineSigner).then(txResp => {
-        console.log(txResp);
+        alert(JSON.stringify({
+          code: txResp.code,
+          transactionHash: txResp.transactionHash,
+          height: txResp.height,
+          rawLog: txResp.rawLog || ""
+        }));
       }).catch(e => {
         alert(e.message || "Unknown error");
       });
